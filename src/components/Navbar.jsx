@@ -1,4 +1,22 @@
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+
+  function handleToggleTheme(e) {
+    if (e.target.checked) {
+      setTheme("synthwave");
+    } else {
+      setTheme("light");
+    }
+  }
+
   return (
     <div className="navbar bg-base-100 shadow-lg p-4 fixed z-10">
       <div className="flex-1">
@@ -21,9 +39,9 @@ export default function Navbar() {
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input
+            onChange={handleToggleTheme}
             type="checkbox"
             className="theme-controller"
-            value="synthwave"
           />
 
           {/* sun icon */}
