@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [theme, setTheme] = useState("light");
@@ -26,12 +27,8 @@ export default function Navbar() {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a className="font-bold">Home</a>
-          </li>
-          <li>
-            <a className="font-bold text-primary">Blogs</a>
-          </li>
+          <Link to="/">Home</Link>
+          <Link to="/blogs">Blogs</Link>
           <li>
             <a className="font-bold">Bookmarks</a>
           </li>
