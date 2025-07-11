@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [theme, setTheme] = useState("light");
@@ -21,17 +21,39 @@ export default function Navbar() {
   return (
     <div className="navbar bg-base-100 shadow-lg p-4 fixed z-10">
       <div className="flex-1">
-        <a className="btn btn-ghost gap-0 text-secondary normal-case text-2xl font-bold">
+        <NavLink
+          to="/"
+          className="btn btn-ghost gap-0 text-secondary normal-case text-2xl font-bold"
+        >
           Byte<span className="text-primary">Blaze</span>
-        </a>
+        </NavLink>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <Link to="/">Home</Link>
-          <Link to="/blogs">Blogs</Link>
-          <li>
-            <a className="font-bold">Bookmarks</a>
-          </li>
+        <ul className="menu menu-horizontal px-1 mr-3 gap-6">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "font-bold text-primary" : "font-bold"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              isActive ? "font-bold text-primary" : "font-bold"
+            }
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            to="/bookmarks"
+            className={({ isActive }) =>
+              isActive ? "font-bold text-primary" : "font-bold"
+            }
+          >
+            Bookmarks
+          </NavLink>
         </ul>
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
