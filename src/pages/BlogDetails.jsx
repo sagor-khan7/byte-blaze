@@ -10,7 +10,6 @@ const BlogDetails = () => {
     reading_time_minutes,
     public_reactions_count,
     published_at,
-    tags,
   } = blog;
 
   return (
